@@ -28,9 +28,6 @@ function App() {
     layer_3: 9
   };
 
-  useEffect(() => {
-    handleRandom();
-  }, []);
 
   const handleRandom = () => {
     setBody(Math.floor(Math.random()* maxValues.body) + 1)
@@ -43,7 +40,11 @@ function App() {
     setLayer2(Math.floor(Math.random()* maxValues.layer_2) + 1)
     setLayer3(Math.floor(Math.random()* maxValues.layer_3) + 1)
   }
-  
+
+  useEffect(() => {
+    handleRandom();
+  },[]);
+
   const categories = [
     { name: 'body', total: 17, subcategories: [], setSelect: setBody },
     { name: 'eyes', total: 24, subcategories: [], setSelect: setEyes },
