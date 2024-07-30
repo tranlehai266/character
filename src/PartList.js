@@ -8,7 +8,10 @@ const PartList = ({ path, subcategories, total, onSelectPart}) => {
           subcategories.map(sub => (
             <div key={sub.name}>
               <h4>{sub.name}</h4>
-              <SubPartList path={`${path}/${sub.name}`} total={sub.total} onSelectPart={onSelectPart} />
+              <SubPartList 
+              path={`${path}/${sub.name}`} 
+              total={sub.total} 
+              onSelectPart={sub.setSelect || onSelectPart} />
             </div>
           ))
         ) : (
