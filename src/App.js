@@ -1,10 +1,31 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import PartList from './PartList';
 
 
 
 function App() {
+
+  const handleRandom =  () => {
+    setBody(Math.floor(Math.random()* maxValues.body) + 1)
+    setEyes(Math.floor(Math.random()* maxValues.eyes) + 1)
+    setHair(Math.floor(Math.random()* maxValues.hair) + 1)
+    setMouths(Math.floor(Math.random()* maxValues.mouths) + 1)
+    setEyebrows(Math.floor(Math.random()* maxValues.eyebrows) + 1)
+    setFacialHair(Math.floor(Math.random()* maxValues.facial_hair) + 1)
+    setLayer1(Math.floor(Math.random()* maxValues.layer_1) + 1)
+    setLayer2(Math.floor(Math.random()* maxValues.layer_2) + 1)
+    setLayer3(Math.floor(Math.random()* maxValues.layer_3) + 1)
+  }
+
+  useEffect(() => {
+    function randomize(){
+      handleRandom()
+    }
+    randomize()
+  },[]);
+
+
 
   const [body, setBody] = useState(1);
   const [eyes, setEyes] = useState(1);
@@ -27,23 +48,6 @@ function App() {
     layer_2: 5,
     layer_3: 9
   };
-
-
-  const handleRandom = () => {
-    setBody(Math.floor(Math.random()* maxValues.body) + 1)
-    setEyes(Math.floor(Math.random()* maxValues.eyes) + 1)
-    setHair(Math.floor(Math.random()* maxValues.hair) + 1)
-    setMouths(Math.floor(Math.random()* maxValues.mouths) + 1)
-    setEyebrows(Math.floor(Math.random()* maxValues.eyebrows) + 1)
-    setFacialHair(Math.floor(Math.random()* maxValues.facial_hair) + 1)
-    setLayer1(Math.floor(Math.random()* maxValues.layer_1) + 1)
-    setLayer2(Math.floor(Math.random()* maxValues.layer_2) + 1)
-    setLayer3(Math.floor(Math.random()* maxValues.layer_3) + 1)
-  }
-
-  useEffect(() => {
-    handleRandom();
-  },[]);
 
   const categories = [
     { name: 'body', total: 17, subcategories: [], setSelect: setBody },
