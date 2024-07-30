@@ -37,7 +37,17 @@ function App() {
     setLayer1(Math.floor(Math.random() * maxValues.layer_1) + 1);
     setLayer2(Math.floor(Math.random() * maxValues.layer_2) + 1);
     setLayer3(Math.floor(Math.random() * maxValues.layer_3) + 1);
-  }, []);
+  }, [
+    maxValues.body,
+    maxValues.eyes,
+    maxValues.hair,
+    maxValues.mouths,
+    maxValues.eyebrows,
+    maxValues.facial_hair,
+    maxValues.layer_1,
+    maxValues.layer_2,
+    maxValues.layer_3
+  ]);
 
   useEffect(() => {
     handleRandom();
